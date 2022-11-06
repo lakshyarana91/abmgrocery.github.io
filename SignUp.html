@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Contact us</title>
+    <link rel="stylesheet" type="text/css" href="Ustyle.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Quicksand&display=swap"
+      rel="stylesheet"
+    />
+    <script src="jquery-3.6.1.js"></script>
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="contact-box">
+        <div class="left"></div>
+        <div class="right">
+          <h2>Contact Us</h2>
+          <input type="text" class="field" placeholder="Your Name" required />
+          <input type="email" class="field" placeholder="Your Email" required />
+          <input type="text" class="field" placeholder="Phone" required />
+          <textarea placeholder="Message" class="field"></textarea>
+          <button class="btn">Send</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        $(".btn").click(function () {
+          // console.log(document.querySelectorAll('.right > input')[1].value);
+          let flag = true;
+          let count = 0;
+          for (let i = 0; i < 3; i++) {
+            if (
+              document.querySelectorAll(".right > input")[i].value.length == 0
+            ) {
+              alert("Fill all the fields");
+              flag = false;
+              break;
+            } else {
+              count++;
+            }
+          }
+          if (flag) {
+            if (document.querySelector(".right > textarea").value.length == 0) {
+              alert("Fill all the fields");
+            } else {
+              count++;
+            }
+          }
+
+          if (count >= 4) {
+            alert("Successfully Submitted");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
